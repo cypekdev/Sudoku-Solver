@@ -109,11 +109,13 @@ const is_valid = (board, row, col, num) => {
 
 solve_button.addEventListener('click', () => {
 
-  const data          = get_data(table)
-  console.log(data)
-  const solved_sudoku = solve_sudoku(data)
+  const table_values  = get_data(table)
+  const solved_sudoku = solve_sudoku(table_values)
 
-  console.log(solved_sudoku)
   print_solved_sudoku(solved_sudoku)
 
 })
+
+
+reset_button.addEventListener('click', create_table)
+create_table()
