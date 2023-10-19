@@ -2,25 +2,84 @@
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-table, tr, td {
-  border: 1px solid black;
-  border-spacing: 0; 
-  padding: 0;
+html {
+  background-color: #0c0f1b;
+}
+
+body {
+  margin: 25px auto;
+  width: min-content;
+}
+
+table {
+  width: 100%;
 }
 
 td {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   text-align: center;
+  color: #d8d8d8;
+  font-size: 25px;
+}
+table, td {
+  border: 1px solid #999;
+  border-spacing: 0; 
+  padding: 0;
+}
+table tr > td:nth-child(3n):not(:last-child) {
+  border-right-width: 3px;
+  border-right-color: white;
+}
+table tr:nth-child(3n):not(:last-child) > td {
+  border-bottom-width: 3px;
+  border-bottom-color: white;
 }
 
 input {
-  width: 20px;
-  height: 20px;
-  font-size: 15px;
+  width: 40px;
+  height: 25px;
+  font-size: 25px;
   border: none;
   text-align: center;
-  font-weight: bold;
+  background-color: #0000;
+  color: white;
+  outline: none;
 }
+
+.buttons {
+  display: flex;
+}
+button {
+  margin: 10px;
+  padding: 7px;
+  flex: auto;
+  border: 1px solid #999;
+  border-radius: 10px;
+  background-color: #1a213a;
+  color: white;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: transform 0.1s;
+}
+
+button:hover {
+  transform: scale(103%);
+}
+
+.error {
+  border: 3px solid red;
+  box-shadow: inset 0 0 7px #f99;
+  text-shadow: 0 0 5px black;
+}
+
+b {
+  color: white;
+  font-weight: 700;
+}
+
