@@ -39,9 +39,6 @@ solve_button.addEventListener('click', () => {
   if (solved_sudoku) {
     return print_solved_sudoku(solved_sudoku);
   }
-
-  console.log('błąd')
-
 })
 
 reset_button.addEventListener('click', create_table)
