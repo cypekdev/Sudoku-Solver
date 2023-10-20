@@ -1,7 +1,7 @@
 # Sudoku Solver
 Sudoku solving app.
 
-App is running [here](https://cypek.ct8.pl/solve-sudoku).
+App is running [here](https://cypek.ct8.pl/sudoku-solver).
 
 ## How it works?
 The algorithm is written using JavaScript.
