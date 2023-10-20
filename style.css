@@ -24,6 +24,7 @@ td {
   text-align: center;
   color: #d8d8d8;
   font-size: 25px;
+  font-weight: 300;
 }
 table, td {
   border: 1px solid #999;
@@ -83,3 +84,11 @@ b {
   font-weight: 700;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

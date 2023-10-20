@@ -3,63 +3,79 @@ const result       = document.getElementById('result');
 
 export function create_table() {
 
-  result.textContent = ''
+  if (result.firstElementChild) 
+    result.removeChild(result.firstElementChild)
 
-  let table_html_element = '<table><tbody>'
+  if (table.firstElementChild) 
+    table.removeChild(table.firstElementChild)
+
+  const table_element = document.createElement('table')
+  const tbody_element = document.createElement('tbody')
+
   for (let row = 1; row <= 9; row++) {
-    table_html_element += '<tr>'
+    const tr_element = document.createElement('tr')
+    
     for (let cell = 1; cell <= 9; cell++) {
-      table_html_element +=
-        '<td>' +
-        '<input type="text" maxlength="1">' +
-        '</td>'
+      const td_element = document.createElement('td')
+      const input_element = document.createElement('input')
+      input_element.type = 'number'
+      input_element.maxLength = 1
+      td_element.appendChild(input_element)
+      tr_element.appendChild(td_element)
     }
-    table_html_element += '</tr>'
+    tbody_element.appendChild(tr_element)
   }
-  table_html_element += '</tbody></table>'
+  table_element.appendChild(tbody_element)
 
-  table.innerHTML = table_html_element
+  table.appendChild(table_element)
 
 }
 
 export function clear_errors() {
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
-      table.
-        firstChild.
-        firstChild.
-        children[row].
-        children[col].
-        classList.
-        remove('error')
+      table
+        .firstElementChild
+        .firstElementChild
+        .children[row]
+        .children[col]
+        .classList
+        .remove('error')
     }
   }
 }
 
 export function print_solved_sudoku(solved_sudoku_table) {
 
-  let table_html_element = '<table>'
+  const table_element = document.createElement('table')
+  const tbody_element = document.createElement('tbody')
+
+  if (result.firstElementChild) 
+    result.removeChild(result.firstElementChild)
 
   solved_sudoku_table.forEach(row => {
 
-    table_html_element += '<tr>'
+    const tr_element = document.createElement('tr')
 
     row.forEach(cell => {
       const { value, is_entered } = cell
-
-      table_html_element += '<td>'
-      is_entered && (table_html_element += '<b>')
-      table_html_element += value
-      is_entered && (table_html_element += '</b>')
-      table_html_element += '</td>'
+      const td_element = document.createElement('td')
+      if (is_entered) {
+        const b_element = document.createElement('b')
+        b_element.textContent = value
+        td_element.appendChild(b_element)
+      } else {
+        td_element.textContent = value
+      }
+      tr_element.appendChild(td_element)
     });
 
-    table_html_element += '</tr>'
+    tbody_element.appendChild(tr_element)
 
   });
-  table_html_element += '</table>'
 
-  result.innerHTML = table_html_element
+  table_element.appendChild(tbody_element)
+  result.appendChild(table_element)
 
 }
 
@@ -68,8 +84,8 @@ export function throw_new_error(row, cell) {
   console.log(`There is an error in ${row + 1} row and ${cell + 1} cell.`)
 
   const rows = table
-    .firstChild
-    .firstChild
+    .firstElementChild
+    .firstElementChild
     .children
 
   const row_element = rows[row]

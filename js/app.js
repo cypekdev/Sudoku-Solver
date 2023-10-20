@@ -11,8 +11,8 @@ const reset_button = document.getElementById('reset_button');
 function get_data(table) {
 
   const rows = table
-    .firstChild
-    .firstChild
+    .firstElementChild
+    .firstElementChild
     .children
   const sudoku_board = []
 
