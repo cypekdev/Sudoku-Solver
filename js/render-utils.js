@@ -60,13 +60,12 @@ export function print_solved_sudoku(solved_sudoku_table) {
     row.forEach(cell => {
       const { value, is_entered } = cell
       const td_element = document.createElement('td')
-      if (is_entered) {
-        const b_element = document.createElement('b')
-        b_element.textContent = value
-        td_element.appendChild(b_element)
-      } else {
-        td_element.textContent = value
-      }
+      const span_element = document.createElement('span')
+      span_element.classList.add('solved-digit')
+      if (is_entered)
+        span_element.classList.add('entered')
+      span_element.textContent = value
+      td_element.appendChild(span_element)
       tr_element.appendChild(td_element)
     });
 
